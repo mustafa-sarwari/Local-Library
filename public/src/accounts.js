@@ -1,25 +1,39 @@
+/**
+ * Finds and returns an account object by its ID
+ * @param {Array<Object>} accounts - Array of account objects
+ * @param {string} id - The ID of the account to find
+ * @returns {Object|undefined} The account object if found, undefined otherwise
+ */
 function findAccountById(accounts, id) {
-  // YOUR SOLUTION HERE
-  // Hint: You can use the [`find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) method here. 
   let accountId = accounts.find( (account) => account.id === id);
     return accountId;
 }
+/**
+ * Sorts accounts alphabetically by last name
+ * @param {Array<Object>} accounts - Array of account objects with name.last property
+ * @returns {Array<Object>} Sorted array of accounts by last name
+ */
 function sortAccountsByLastName(accounts) {
-  // YOUR SOLUTION HERE
-  // Hint: You can use the [`sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method here.
     const accountSorted = accounts.sort((a, b)=> a.name.last.localeCompare(b.name.last));
     return accountSorted;
-
 }
 
+/**
+ * Returns an array of full names for all accounts
+ * @param {Array<Object>} accounts - Array of account objects with name.first and name.last properties
+ * @returns {Array<string>} Array of full names in "FirstName LastName" format
+ */
 function getAccountFullNames(accounts) {
-  // YOUR SOLUTION HERE
-  // Hint: You can use the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method here.
   const accounts_Full_Name = accounts.map((account)=> `${account.name.first} ${account.name.last}`);
   return accounts_Full_Name
 }
 
-// NOTE: YOU DON'T HAVE TO EDIT THE FUNCTIONS BELOW
+/**
+ * Calculates the total number of times an account has borrowed books
+ * @param {Object} account - Account object with id property
+ * @param {Array<Object>} books - Array of book objects with borrows property
+ * @returns {number} Total number of borrows for the account
+ */
 function getTotalNumberOfBorrows(account, books) {
   return books.reduce((acc, book) => {
     const count = book.borrows.reduce((borrowAcc, borrow) => {
@@ -30,6 +44,13 @@ function getTotalNumberOfBorrows(account, books) {
   }, 0);
 }
 
+/**
+ * Returns all books currently possessed (not returned) by an account with author information embedded
+ * @param {Object} account - Account object with id property
+ * @param {Array<Object>} books - Array of book objects with borrows and authorId properties
+ * @param {Array<Object>} authors - Array of author objects
+ * @returns {Array<Object>} Array of books currently borrowed by the account with author details
+ */
 function getBooksPossessedByAccount(account, books, authors) {
   return books
     .filter((book) => {
