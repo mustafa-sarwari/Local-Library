@@ -1,28 +1,60 @@
 {
-  "name": "project-local-library",
+  "name": "local-library-admin",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A modern web-based library management system with admin dashboard for tracking books, authors, and user accounts. Built with vanilla JavaScript, HTML5, and Bootstrap.",
+  "main": "public/index.html",
   "directories": {
-    "test": "test"
+    "test": "test",
+    "doc": "docs"
   },
   "scripts": {
+    "start": "live-server public/",
+    "test": "mocha test/*.test.js",
     "docker:build": "docker image build . -t thinkful-ed/zid-pf-project-loc-library-01-qualified-assignment",
     "docker:run": "docker run --rm -it -p 3000:3000 thinkful-ed/zid-pf-project-loc-library-01-qualified-assignment",
     "docker:stop": "docker stop $(docker ps -q)",
     "docker:test": "docker run -i thinkful-ed/zid-pf-project-loc-library-01-qualified-assignment npm test",
-    "start": "live-server public/",
     "start:solution": "npm run -it docker:build && npm run docker:run",
-    "test": "mocha test/*.test.js",
     "test:solution": "npm run docker:build && npm run docker:test"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mustafa-sarwari/Local-Library.git"
+  },
+  "keywords": [
+    "library",
+    "management",
+    "dashboard",
+    "admin",
+    "javascript",
+    "html5",
+    "css3",
+    "bootstrap",
+    "frontend",
+    "web-application",
+    "books",
+    "analytics",
+    "statistics",
+    "portfolio",
+    "demo"
+  ],
+  "author": {
+    "name": "Mustafa Sarwari",
+    "url": "https://github.com/mustafa-sarwari"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mustafa-sarwari/Local-Library/issues"
+  },
+  "homepage": "https://mustafa-sarwari.github.io/Local-Library/public",
   "devDependencies": {
     "chai": "^4.2.0",
-    "colors": "1.4.0",  
+    "colors": "1.4.0",
     "live-server": "1.2.1",
     "mocha": "^8.1.1"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
   }
 }

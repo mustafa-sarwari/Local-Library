@@ -1,6 +1,9 @@
+/**
+ * Calculates the total number of books in the library
+ * @param {Array<Object>} books - Array of book objects
+ * @returns {number} Total count of books
+ */
 function getTotalBooksCount(books) {
-  // YOUR SOLUTION HERE
-  
   let sum = 0;
   for(let i = 0; i < books.length; i++){
     sum++
@@ -8,8 +11,12 @@ function getTotalBooksCount(books) {
   return sum; 
 }
 
+/**
+ * Calculates the total number of registered accounts
+ * @param {Array<Object>} accounts - Array of account objects
+ * @returns {number} Total count of accounts
+ */
 function getTotalAccountsCount(accounts) {
-  // YOUR SOLUTION HERE
   let sum = 0;
   for(let i = 0; i < accounts.length; i++){
     sum++
@@ -17,21 +24,21 @@ function getTotalAccountsCount(accounts) {
   return sum;
 }
 
+/**
+ * Calculates the number of books currently borrowed (not returned)
+ * @param {Array<Object>} books - Array of book objects with borrows property
+ * @returns {number} Count of books currently borrowed
+ */
 function getBooksBorrowedCount(books) {
-
-  // 1:
-
- /* const borrowedCount =  books.filter((book)=>{ 
-  const count = book.borrows[0].returned;
-  return count === false}).length;
- return borrowedCount; */
-
- // 2:
-
- return books.filter((book)=> book.borrows[0].returned === false).length;
+  return books.filter((book)=> book.borrows[0].returned === false).length;
 }
 
-// Tbis is a helper function that's called by other functions inside this file.
+/**
+ * Helper function that sorts an object by its values in descending order
+ * @private
+ * @param {Object} obj - Object with numeric values
+ * @returns {Array<string>} Array of keys sorted by their values (highest to lowest)
+ */
 function _sortObjectByValues(obj) {
   const keys = Object.keys(obj);
   return keys.sort((keyA, keyB) => {
@@ -45,7 +52,11 @@ function _sortObjectByValues(obj) {
   });
 }
 
-// NOTE: YOU DON'T HAVE TO EDIT THE FUNCTIONS BELOW
+/**
+ * Returns the top 5 most common book genres
+ * @param {Array<Object>} books - Array of book objects with genre property
+ * @returns {Array<Object>} Array of objects with name and count properties, limited to top 5
+ */
 function getMostCommonGenres(books) {
   const count = books.reduce((acc, { genre }) => {
     if (acc[genre]) {
@@ -61,6 +72,11 @@ function getMostCommonGenres(books) {
   return sorted.map((name) => ({ name, count: count[name] })).slice(0, 5);
 }
 
+/**
+ * Returns the top 5 most popular books based on borrow count
+ * @param {Array<Object>} books - Array of book objects with id, title, and borrows properties
+ * @returns {Array<Object>} Array of objects with name (title) and count properties, limited to top 5
+ */
 function getMostPopularBooks(books) {
   const groupById = books.reduce((acc, { id, borrows }) => {
     acc[id] = borrows.length;
@@ -76,6 +92,12 @@ function getMostPopularBooks(books) {
     .slice(0, 5);
 }
 
+/**
+ * Returns the top 5 most popular authors based on total borrows of their books
+ * @param {Array<Object>} books - Array of book objects with authorId and borrows properties
+ * @param {Array<Object>} authors - Array of author objects with id and name properties
+ * @returns {Array<Object>} Array of objects with author name and total borrow count, limited to top 5
+ */
 function getMostPopularAuthors(books, authors) {
   const count = books.reduce((acc, { authorId, borrows }) => {
     if (acc[authorId]) {
