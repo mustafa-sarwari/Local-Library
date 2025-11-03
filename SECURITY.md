@@ -14,8 +14,8 @@ We take the security of Local Library seriously. If you believe you have found a
 
 ### Please do the following:
 
-- **DO NOT** open a public issue
-- Email details to: [mustafa.sarwari@example.com] (replace with actual email)
+- **DO NOT** open a public issue for security vulnerabilities
+- Report security issues privately by using [GitHub's private vulnerability reporting](https://github.com/mustafa-sarwari/Local-Library/security/advisories/new)
 - Include the following information:
   - Type of issue (e.g., XSS, CSRF, SQL injection, etc.)
   - Full paths of source file(s) related to the issue
