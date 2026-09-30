@@ -16,7 +16,7 @@
     "test": "mocha test/*.test.js",
     "test:solution": "npm run docker:build && npm run docker:test",
     "start:api": "node server/index.cjs",
-    "test:api": "node --test server/api.test.cjs"
+    "test:api": "node --test server/*.test.cjs"
   },
   "keywords": [],
   "author": "",
