@@ -1,42 +1,44 @@
-# 📚 Local Library Website
+# Local Library
 
-A simple, clean website for a Local Library built with **HTML** and **CSS** and **JavaScrit**.  
-This project showcases a fictional library’s homepage layout, including book listings, navigation, and contact info.
-Also it show sthe list of the books and their information. 
+A browser-based library simulation built with HTML, CSS, and vanilla JavaScript. This learning project uses static data to explore books, authors, borrowing records, and account views.
 
-## 🔗 Live Demo
+## Skills demonstrated
 
+- JavaScript data processing and DOM rendering
+- Filtering, sorting, and presenting related records
+- Separating data, rendering, and user interaction
+- Automated checks with Mocha and Chai
 
-[View Live Site](https://mustafa-sarwari.github.io/Local-Library/public)
+## Run locally
 
-This is a web-based simulation of a local library system. The goal of the project is to provide a frontend interface for managing books, authors, and user accounts using static data (JSON format).
+```bash
+git clone https://github.com/mustafa-sarwari/Local-Library.git
+cd Local-Library
+npm install
+npm start
+```
 
-It includes interactive features such as listing borrowed books, filtering, sorting, and user-specific views — all built using vanilla JavaScript and HTML.
+The start script serves `public/` with live-server. Use the URL printed in your terminal.
 
-## 🎨 Features
+## Tests
 
-- Semantic HTML structure
-- Clean and readable CSS styling
-- Responsive design principles
-- Organized navigation menu
-- Book listings and library information sections
+```bash
+npm test
+```
 
-## 🛠️ Built With
+This invokes the existing Mocha tests in `test/`.
 
-- HTML5
-- CSS3
-- Javascript
-  
-## 📂 Folder Structure
-Local-Library/
-├── data/
-│   ├── accounts.js      # Contains user account data
-│   ├── authors.js       # Contains author data
-│   └── books.js         # Contains book data
-├── renderers/
-│   └── home.js          # Logic for rendering the homepage content
-├── src/
-│   └── home.js          # Core homepage logic (event handlers, etc.)
-├── setup.js             # App setup, including initial render
-├── index.html           # Main HTML entry point
-└── README.md            # This file
+## Repository structure
+
+- `public/`: browser application and static assets
+- `test/`: JavaScript tests
+- `docs/`: supporting documentation
+- `package.json`: development and test scripts
+
+## Scope
+
+This is a frontend learning project using static data. It does not provide a backend database or production account authentication.
+
+## Author
+
+[Mustafa Sarwari](https://github.com/mustafa-sarwari) — junior full-stack developer.
