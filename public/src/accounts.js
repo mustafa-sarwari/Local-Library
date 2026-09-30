@@ -7,7 +7,7 @@ function findAccountById(accounts, id) {
 function sortAccountsByLastName(accounts) {
   // YOUR SOLUTION HERE
   // Hint: You can use the [`sort()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) method here.
-    const accountSorted = accounts.sort((a, b)=> a.name.last.localeCompare(b.name.last));
+    const accountSorted = [...accounts].sort((a, b)=> a.name.last.localeCompare(b.name.last));
     return accountSorted;
 
 }
@@ -34,7 +34,7 @@ function getBooksPossessedByAccount(account, books, authors) {
   return books
     .filter((book) => {
       const recent = book.borrows[0];
-      return !recent.returned && recent.id === account.id;
+      return recent && !recent.returned && recent.id === account.id;
     })
     .map((book) => {
       const author = authors.find((author) => author.id === book.authorId);

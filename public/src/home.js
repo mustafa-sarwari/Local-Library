@@ -28,7 +28,7 @@ function getBooksBorrowedCount(books) {
 
  // 2:
 
- return books.filter((book)=> book.borrows[0].returned === false).length;
+ return books.filter((book)=> book.borrows[0]?.returned === false).length;
 }
 
 // Tbis is a helper function that's called by other functions inside this file.

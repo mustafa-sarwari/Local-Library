@@ -1,44 +1,38 @@
-# Local Library
+# Library borrowing — full-stack project
 
-A browser-based library simulation built with HTML, CSS, and vanilla JavaScript. This learning project uses static data to explore books, authors, borrowing records, and account views.
+Browse the catalogue, borrow books, return them, and preserve private borrowing history.
 
-## Skills demonstrated
+**Frontend:** HTML, CSS, and JavaScript. **Backend:** Node.js 24, HTTP API, SQLite, and account sessions.
 
-- JavaScript data processing and DOM rendering
-- Filtering, sorting, and presenting related records
-- Separating data, rendering, and user interaction
-- Automated checks with Mocha and Chai
+The backend checks catalogue IDs, rejects duplicate active loans, and permits reborrowing after return. The workspace handles the catalogue’s string IDs. Original course fixtures and exercises remain educational material.
 
 ## Run locally
 
 ```bash
-git clone https://github.com/mustafa-sarwari/Local-Library.git
-cd Local-Library
-npm install
-npm start
+npm run start:api
 ```
 
-The start script serves `public/` with live-server. Use the URL printed in your terminal.
+Open <http://localhost:4000>, choose **Sign in · Account**, and create your local owner account. **My workspace** opens the stored workflows. The first account manages owner-only resources; later accounts receive member access and private account data.
 
-## Tests
+## Implementation
 
-```bash
-npm test
-```
+- Salted scrypt password hashes, rotated HttpOnly sessions, seven-day expiry, and owner/member roles.
+- SQLite-backed `loans` workflows with access checks and server-side validation.
+- Connected account screens for saved records, search, paging, and activity; resource permissions control available actions.
+- Transactional writes, retry keys, version-aware edits to mutable records, bounded requests, and protected server files.
 
-This invokes the existing Mocha tests in `test/`.
+[Routes, storage design, and access rules](docs/backend.md) · [Workspace preview](docs/workspace-preview.jpg)
 
-## Repository structure
+![Account workspace](docs/workspace-preview.jpg)
 
-- `public/`: browser application and static assets
-- `test/`: JavaScript tests
-- `docs/`: supporting documentation
-- `package.json`: development and test scripts
+## Verification
 
-## Scope
+`npm run test:api` passes **4 backend tests**, covering account security, session expiry/persistence, access control, validation, and the repository workflow. The 21 retained course tests also passed.
 
-This is a frontend learning project using static data. It does not provide a backend database or production account authentication.
+The account/resource flow passes browser checks at 375px and 1280px without page JavaScript errors or horizontal overflow in those flows. [GitHub Actions](.github/workflows/fullstack.yml) runs backend checks on pushes and pull requests.
 
-## Author
+## Project context
 
-[Mustafa Sarwari](https://github.com/mustafa-sarwari) — junior full-stack developer.
+[Mustafa Sarwari](https://github.com/mustafa-sarwari) — junior full-stack developer building deeper frontend integration, server validation, authentication, database, and testing skills. The HTTP/account workspace foundation is reused across these portfolio projects; each project’s domain behavior is described above. Original community content, educational fixtures, and licenses remain attributed.
+
+A Node runtime is required for accounts, persistence, provider proxies, and webhooks. Static previews show frontend assets. Demonstration orders do not process payments; stored requests are not emailed. Live provider/store credentials have not been exercised by the fixture tests.

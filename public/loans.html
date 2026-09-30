@@ -1,0 +1,7 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Local Library — My loans</title><link rel="stylesheet" href="loans.css"><script>
+if(location.protocol!=='file:'&&!location.hostname.endsWith('.github.io')){
+ const enableAccount=()=>{const s=document.createElement('script');s.src='/account.js';document.head.append(s);};
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enableAccount,{once:true});else enableAccount();
+}
+</script>
+</head><body><main><a href="index.html">Back to library statistics</a><h1>My book loans</h1><p>Borrow and return sample books in your local demo session.</p><p id="status" role="status" aria-live="polite"></p><label for="search">Search catalog</label><input id="search" type="search" placeholder="Title or genre"><h2>Catalog</h2><ul id="catalog"></ul><h2>Your loans</h2><ul id="loans"></ul></main><script src="loans.js" defer></script></body></html>
