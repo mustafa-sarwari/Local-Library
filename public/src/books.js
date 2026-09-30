@@ -16,7 +16,7 @@ function partitionBooksByBorrowedStatus(books) {
     (acc, book) => {
       const [borrowed, returned] = acc;
       const recent = book.borrows[0];
-      if (recent.returned) {
+      if (!recent || recent.returned) {
         returned.push(book);
       } else {
         borrowed.push(book);

@@ -1,44 +1,28 @@
-# Local Library
+# Library dashboard and borrowing demo
 
-A browser-based library simulation built with HTML, CSS, and vanilla JavaScript. This learning project uses static data to explore books, authors, borrowing records, and account views.
+The original course dashboard explores static book and account fixtures. The new My loans page searches the catalog and saves borrowing/return history through a validated SQLite-backed API. The course data is not modified.
 
-## Skills demonstrated
+## Run the full-stack demo
 
-- JavaScript data processing and DOM rendering
-- Filtering, sorting, and presenting related records
-- Separating data, rendering, and user interaction
-- Automated checks with Mocha and Chai
-
-## Run locally
+Requires Node.js 24 or newer.
 
 ```bash
-git clone https://github.com/mustafa-sarwari/Local-Library.git
-cd Local-Library
 npm install
-npm start
+npm run start:api
 ```
 
-The start script serves `public/` with live-server. Use the URL printed in your terminal.
+Open http://localhost:4000. Run `npm run test:api` to check the backend workflow.
+Run `npm test` for the original dashboard tests.
 
-## Tests
+## Implementation and scope
 
-```bash
-npm test
-```
+- `server/index.cjs` defines API routes and validation.
+- `server/http.cjs` provides the HTTP server, bounded JSON parsing, static-file protection, session cookies, and parameterized SQLite storage.
+- `.data/` contains the local database and is ignored by Git.
 
-This invokes the existing Mocha tests in `test/`.
+The server binds to loopback. Session cookies separate browser data; they are not user accounts or cross-device login. These are local portfolio demos. Static hosting cannot run the Node API. Production deployment would require account authentication, abuse controls, and deployment configuration. No payment processing or email delivery is implemented.
 
-## Repository structure
+## Learning context
 
-- `public/`: browser application and static assets
-- `test/`: JavaScript tests
-- `docs/`: supporting documentation
-- `package.json`: development and test scripts
-
-## Scope
-
-This is a frontend learning project using static data. It does not provide a backend database or production account authentication.
-
-## Author
-
-[Mustafa Sarwari](https://github.com/mustafa-sarwari) — junior full-stack developer.
+[Mustafa Sarwari](https://github.com/mustafa-sarwari) — junior full-stack developer building practical frontend and backend skills.
+This extends an existing course project; original fixtures, exercises, and test attribution are preserved.
